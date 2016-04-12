@@ -1,0 +1,10 @@
+React SVG Starter
+
+Instantly start building a React SVG app. The seed is setup with ES2015, React, Redux, HMR, and loaders for CSS, HTML, fonts, and image files
+
+To run:
+
+  $ npm install
+  $ npm run dev
+
+Forked from: https://github.com/rangle/react-redux-starter
