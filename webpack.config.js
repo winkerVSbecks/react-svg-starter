@@ -59,7 +59,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[hash].js',
-    publicPath: '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '' : '/',
     sourceMapFilename: '[name].[hash].js.map',
     chunkFilename: '[id].chunk.js',
   },
