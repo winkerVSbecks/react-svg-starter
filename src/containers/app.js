@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Canvas from '../components/canvas';
 import { windowResize } from '../actions/canvas';
 
+const clrs = ['#FFE200', '#34A766', '#0072BB', '#DB3B43', '#FE7541'];
+
 function mapStateToProps(state) {
   return {
     w: state.canvas.get('w'),
@@ -28,7 +30,22 @@ class App extends Component {
   }
 
   render() {
-    return <Canvas { ...this.props } />;
+    const { w, h } = this.props;
+    return (
+      <Canvas { ...this.props }>
+        {
+          clrs.map((clr, idx) => {
+            return (
+              <rect key={ idx }
+                x={ 0.1625 * w + (0.15 * w * idx) } y={ 0.25 * h }
+                width={ 0.075 * w }
+                height={ 0.5 * h }
+                fill={ clr } />
+            );
+          })
+        }
+      </Canvas>
+    );
   }
 
   handleResize = () => {

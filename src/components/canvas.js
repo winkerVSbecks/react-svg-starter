@@ -5,7 +5,7 @@ import React from 'react';
  * This component generates the base SVG
  * and sets up all the sub-components
  */
-const Canvas = ({ w, h }) => {
+const Canvas = ({ w, h, children }) => {
   const viewBox = [0, 0, w, h].join(' ');
 
   return (
@@ -15,17 +15,7 @@ const Canvas = ({ w, h }) => {
       height="100%"
       viewBox={ viewBox }
       style={ styles }>
-      {
-        clrs.map((clr, idx) => {
-          return (
-            <rect key={ idx }
-              x={ 0.1625 * w + (0.15 * w * idx) } y={ 0.25 * h }
-              width={ 0.075 * w }
-              height={ 0.5 * h }
-              fill={ clr } />
-          );
-        })
-      }
+      { children }
     </svg>
   );
 };
@@ -33,9 +23,9 @@ const Canvas = ({ w, h }) => {
 Canvas.propTypes = {
   h: React.PropTypes.number,
   w: React.PropTypes.number,
+  children: React.PropTypes.node,
 };
 
 const styles = { display: 'block' };
-const clrs = ['#FFE200', '#34A766', '#0072BB', '#DB3B43', '#FE7541'];
 
 export default Canvas;

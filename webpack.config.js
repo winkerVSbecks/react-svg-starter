@@ -20,6 +20,7 @@ const basePlugins = [
   new HtmlWebpackPlugin({
     template: './src/index.html',
     inject: 'body',
+    favicon: './favicon.ico',
   }),
 ];
 
